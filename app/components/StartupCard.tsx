@@ -6,17 +6,18 @@ import Link from 'next/link'
 import React from 'react'
 import { Author, Startup } from '@/sanity/types'
 
+
 export type StartupCardType = Omit<Startup,'author'> & {author?:Author}
 
-const StartupCard = ({post}:{post:StartupCardType}) => {
+const StartupCard =async ({post}:{post:StartupCardType}) => {  
   return (
     <li className='startup-card group'>
         <div className='flex-between'>
             <p className='startup_card_date'>
                 {formatDate(post?._createdAt)}
             </p>
-            <div className='flex gap-1.5'>
-                <EyeIcon className='size-6 text-primary'/>
+            <div className='flex gap-1.5 items-center'>
+                <EyeIcon className='size-5 text-pink-500'/>
                 <span className='text-16-medium'>{post?.views}</span>
             </div>
         </div>
@@ -33,6 +34,7 @@ const StartupCard = ({post}:{post:StartupCardType}) => {
                 <Image src={'https://placehold.co/48x48'} width={48} height={48} className='rounded-full' alt='avatar'/>
             </Link>
         </div>
+        
         <Link href={`/startup/${post?._id}`}>
             <p className='startup-card_desc'>
                 {post.description}
