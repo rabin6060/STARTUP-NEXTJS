@@ -7,7 +7,6 @@ export async function middleware(req:NextRequest){
 
     if (!session?.id) {
         const response = NextResponse.redirect(new URL('/',req.url))
-        response.cookies.set('unauthorize','true',{path:'/'})
         return response
     }
 
@@ -15,5 +14,5 @@ export async function middleware(req:NextRequest){
 }
 
 export const config = {
-    matcher :[ '/startup/:id','/user/:id']
+    matcher :[ '/startup/:id','/user/:id','/startup/create']
 }
