@@ -15,9 +15,10 @@ const View = async ({id}:{id:string}) => {
             try {
               await writeClient
                 .patch(id) // Document ID to update
+                .setIfMissing({views:0})
                 .inc({ views: 1 }) // Increment views by 1
                 .commit(); // Commit the changes
-              console.log('Views updated successfully.');
+             
             } catch (error) {
               console.error('Error updating views:', error);
             }
