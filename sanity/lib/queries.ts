@@ -51,5 +51,28 @@ export const STARTUP_QUERIES = {
       _createdAt,
       pitch
   }`,
+  playlists_by_slug_query :`*[_type == "playlist" && defined(slug.current)][0]{
+  _id,
+  title,
+  slug,
+  select[]->{
+    _id,
+    _createdAt,
+    title,
+    slug,
+    author->{
+      _id,
+      name,
+      slug,
+      image,
+      bio
+    },
+    views,
+    description,
+    category,
+    image,
+    pitch
+  }
+}`
  
 }
