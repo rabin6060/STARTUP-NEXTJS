@@ -31,7 +31,7 @@ const StartupCard =async ({post}:{post:StartupCardType}) => {
                 </Link>
             </div>
             <Link href={`/user/${post.author?._id}`}>
-                <Image src={post?.author?.image || ""} width={48} height={48} className='rounded-full' alt='avatar'/>
+             { post.author?.image &&  <Image src={post?.author?.image} width={48} height={48} className='rounded-full' alt='avatar'/>}
             </Link>
         </div>
         
