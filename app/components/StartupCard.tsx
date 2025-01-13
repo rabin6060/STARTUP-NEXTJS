@@ -11,7 +11,7 @@ export type StartupCardType = Omit<Startup,'author'> & {author?:Author}
 
 const StartupCard =async ({post}:{post:StartupCardType}) => {  
   return (
-    <li className='startup-card group'>
+    <li className='startup-card group my-2'>
         <div className='flex-between'>
             <p className='startup_card_date'>
                 {formatDate(post?._createdAt)}
@@ -31,7 +31,7 @@ const StartupCard =async ({post}:{post:StartupCardType}) => {
                 </Link>
             </div>
             <Link href={`/user/${post.author?._id}`}>
-                <Image src={'https://placehold.co/48x48'} width={48} height={48} className='rounded-full' alt='avatar'/>
+                <Image src={post?.author?.image || ""} width={48} height={48} className='rounded-full' alt='avatar'/>
             </Link>
         </div>
         
