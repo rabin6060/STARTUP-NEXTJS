@@ -15,7 +15,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   try {
     const result = await sanityFetch({ query: STARTUP_QUERIES.startupLists, params: params });
     posts = result.data || [];
-    console.log(posts.length)
   } catch (error) {
     console.error("Failed to fetch startups:", error);
   }
