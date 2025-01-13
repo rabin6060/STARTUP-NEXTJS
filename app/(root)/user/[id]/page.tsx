@@ -12,6 +12,7 @@ const page = async({params}:{params:Promise<{id:string}>}) => {
     const {id} = await params
     const session =  await auth()
     const user = await client.fetch(STARTUP_QUERIES.fetchUserById,{id})
+    
     if (!user) return notFound()
   return (
     <>
